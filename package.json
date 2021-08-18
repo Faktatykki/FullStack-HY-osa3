@@ -1,0 +1,29 @@
+{
+  "name": "puhelinluettelo-backend",
+  "version": "0.0.1",
+  "description": "Repository for Department of Computer Science, University of Helsinki, Full Stack open course, part 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Faktatykki/FullStack-HY-osa3.git"
+  },
+  "author": "Sampo Kääriäinen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Faktatykki/FullStack-HY-osa3/issues"
+  },
+  "homepage": "https://github.com/Faktatykki/FullStack-HY-osa3#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
