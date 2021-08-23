@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
-    console.log('I demand more arguments')
-    process.exit(1)
+  console.log('I demand more arguments')
+  process.exit(1)
 }
 
 //[0] node
@@ -20,28 +21,28 @@ const url = `mongodb+srv://fullstack-hy:${password}@fs-cluster.qiy3y.mongodb.net
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
 
 const personSchema = new mongoose.Schema({
-    name: String,
-    number: String,
+  name: String,
+  number: String,
 })
 
 const Person = mongoose.model('Person', personSchema)
 
 if (typeof name === 'undefined' || typeof num === 'undefined') {
-    console.log('phonebook:')
-    Person.find({}).then(result => {
-        result.forEach(person => {
-            console.log(`${person.name} ${person.number}`)
-        })
-        mongoose.connection.close()
+  console.log('phonebook:')
+  Person.find({}).then(result => {
+    result.forEach(person => {
+      console.log(`${person.name} ${person.number}`)
     })
+    mongoose.connection.close()
+  })
 } else {
-    const person = new Person({
-        name: name,
-        number: num
-    })
+  const person = new Person({
+    name: name,
+    number: num
+  })
 
-    person.save().then(res => {
-        console.log(`added ${person.name} number ${person.number} to phonebook`)
-        mongoose.connection.close()
-    })
+  person.save().then(() => {
+    console.log(`added ${person.name} number ${person.number} to phonebook`)
+    mongoose.connection.close()
+  })
 }
